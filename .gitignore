@@ -1,3 +1,181 @@
-*.pyc
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Machine Learning
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.model
+*.weights
+
+# PyTorch
+*.pth
+*.pt
+*.tar
+
+# TensorFlow
+*.pb
+*.tflite
+*.tfs
+
+# Weights & Biases
+wandb/
+
+# MLflow
+mlruns/
+
+# Data
+data/woven_dataset/samples/
+data/woven_dataset/annotations/
+data/woven_dataset/scenes/
+data/woven_dataset/maps/
+data/woven_dataset/metadata/
+data/processed/bev_features/train/
+data/processed/bev_features/val/
+data/processed/bev_features/test/
+data/processed/annotations_processed/train/
+data/processed/annotations_processed/val/
+data/processed/annotations_processed/test/
+
+# Checkpoints
+results/checkpoints/*.pth
+results/checkpoints/*.pt
+results/checkpoints/*.tar
+experiments/checkpoints/
+models/saved/
+
+# Logs
+results/logs/*.log
+results/logs/tensorboard/
+*.log
+logs/
+
+# Temporary files
+.tmp/
+tmp/
+temp/
+.cache/
+
+# OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Colab
+.config/
+
+# CUDA
+*.cubin
+*.fatbin
+*.ptx
+
+# Results
+results/figures/temp/
+results/temp/
