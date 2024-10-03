@@ -9,46 +9,41 @@ from typing import List, Tuple, Dict, Any
 
 @dataclass
 class DataConfig:
-    """Data-related configuration"""
-    # Dataset paths
-    dataset_root: str = "data/woven_dataset"
-    processed_data_root: str = "data/processed"
-    splits_dir: str = "data/splits"
+    """Configuration for dataset and data loading."""
     
-    # Dataset splits
-    train_split: float = 0.7
+    # Dataset paths
+    data_root: str = "data/woven_dataset"
+    processed_root: str = "data/processed" 
+    
+    # Data splits (70/15/15 train/val/test)
+    train_split: float = 0.70
     val_split: float = 0.15
     test_split: float = 0.15
     
-    # Data subset for development (use fraction of full dataset)
-    use_data_fraction: float = 0.25  # Start with 25% for development
+    # Data loading parameters
+    batch_size: int = 16  # Optimized for H100 GPU memory
+    num_workers: int = 8  # Increased for faster data loading
+    pin_memory: bool = True
+    shuffle_train: bool = True
     
-    # BEV (Bird's Eye View) parameters
-    bev_width: int = 512
-    bev_height: int = 512
-    bev_resolution: float = 0.1  # meters per pixel
+    # BEV preprocessing parameters  
+    bev_size: Tuple[int, int] = (512, 512)
+    bev_range: Tuple[float, float, float, float] = (-50.0, 50.0, -50.0, 50.0)  # [x_min, x_max, y_min, y_max]
+    voxel_size: float = 0.195  # meters per pixel (100m / 512 pixels)
+    num_sweeps: int = 5  # Multi-sweep accumulation for temporal context
     
-    # LIDAR processing parameters
-    point_cloud_range: List[float] = field(default_factory=lambda: [-50.0, -50.0, -3.0, 50.0, 50.0, 5.0])  # [x_min, y_min, z_min, x_max, y_max, z_max]
-    max_sweeps: int = 5  # Number of LIDAR sweeps to accumulate
-    
-    # BEV features to encode
-    bev_channels: List[str] = field(default_factory=lambda: ['height_max', 'height_mean', 'intensity_max', 'density'])
-    
-    # Data augmentation
+    # Data augmentation (enabled during training)
     use_augmentation: bool = True
-    rotation_range: float = 0.78539816  # ±45 degrees in radians
-    scale_range: Tuple[float, float] = (0.9, 1.1)
-    flip_probability: float = 0.5
+    rotation_range: float = 15.0  # degrees
+    translation_range: float = 2.0  # meters
+    intensity_noise_std: float = 0.02
     
     # Class information
-    pedestrian_class_id: int = 2  # Assuming pedestrian is class 2 (adjust based on actual dataset)
-    num_classes: int = 10  # Total number of semantic classes
-    
-    # Dataloader parameters
-    batch_size: int = 8  # Adjust based on GPU memory
-    num_workers: int = 4
-    pin_memory: bool = True
+    num_classes: int = 5
+    class_names: List[str] = field(default_factory=lambda: [
+        "background", "vehicle", "pedestrian", "cyclist", "traffic_sign"
+    ])
+    ignore_index: int = 255
 
 
 @dataclass
@@ -211,8 +206,7 @@ class Config:
     def __post_init__(self):
         """Post-initialization setup"""
         # Create directories
-        os.makedirs(self.data.processed_data_root, exist_ok=True)
-        os.makedirs(self.data.splits_dir, exist_ok=True)
+        os.makedirs(self.data.processed_root, exist_ok=True)
         os.makedirs(self.experiment.log_dir, exist_ok=True)
         os.makedirs(self.experiment.checkpoint_dir, exist_ok=True)
         os.makedirs(self.experiment.figures_dir, exist_ok=True)
@@ -223,11 +217,13 @@ class Config:
     def _validate_config(self):
         """Validate configuration parameters"""
         # Data validation
-        assert 0 < self.data.use_data_fraction <= 1.0, "Data fraction must be between 0 and 1"
+        assert 0 < self.data.train_split <= 1.0, "Train split must be between 0 and 1"
+        assert 0 < self.data.val_split <= 1.0, "Val split must be between 0 and 1"
+        assert 0 < self.data.test_split <= 1.0, "Test split must be between 0 and 1"
         assert abs(self.data.train_split + self.data.val_split + self.data.test_split - 1.0) < 1e-6, "Splits must sum to 1.0"
         
         # Model validation
-        assert self.model.in_channels == len(self.data.bev_channels), "Model input channels must match BEV channels"
+        assert self.model.in_channels == len(self.data.class_names), "Model input channels must match number of classes"
         assert self.model.out_channels == self.data.num_classes, "Model output channels must match number of classes"
         
         # Training validation
@@ -259,6 +255,6 @@ if __name__ == "__main__":
     config = Config()
     print("Configuration created successfully!")
     print(f"Experiment name: {config.experiment.experiment_name}")
-    print(f"BEV resolution: {config.data.bev_width}x{config.data.bev_height}")
+    print(f"BEV size: {config.data.bev_size}")
     print(f"Attention type: {config.model.attention_type}")
     print(f"Target improvement: 15-40% in pedestrian mIoU") # Configuration optimization for Colab
