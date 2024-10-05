@@ -1,0 +1,65 @@
+# Core ML/DL Framework
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Data Processing and Numerical Computing
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.8.0
+
+# LIDAR Data Processing and nuScenes SDK
+# Note: Lyft's modified nuScenes SDK should be installed separately as provided with dataset
+
+# Computer Vision and Image Processing
+opencv-python>=4.5.0
+Pillow>=8.3.0
+imageio>=2.9.0
+
+# Visualization
+matplotlib>=3.4.0
+seaborn>=0.11.0
+plotly>=5.0.0
+
+# Metrics and Evaluation
+scikit-learn>=1.0.0
+scikit-image>=0.18.0
+
+# Logging and Experiment Tracking
+tensorboard>=2.7.0
+wandb>=0.12.0  # Optional: for advanced experiment tracking
+
+# Configuration Management
+pyyaml>=5.4.0
+configargparse>=1.5.0
+
+# Progress Bars and Utilities
+tqdm>=4.62.0
+rich>=10.0.0
+
+# Point Cloud Processing (if needed beyond nuScenes SDK)
+open3d>=0.13.0  # Optional: for advanced 3D visualization
+
+# Memory Optimization
+psutil>=5.8.0
+
+# File I/O and Compression
+h5py>=3.2.0
+lz4>=3.1.0
+
+# Jupyter and Development
+jupyter>=1.0.0
+ipywidgets>=7.6.0
+notebook>=6.4.0
+
+# Code Quality and Formatting
+black>=21.0.0
+flake8>=3.9.0
+isort>=5.9.0
+
+# Testing (Optional)
+pytest>=6.2.0
+pytest-cov>=2.12.0
+
+# System and OS utilities
+pathlib2>=2.3.0; python_version < "3.4" 
