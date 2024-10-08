@@ -261,4 +261,4 @@ if __name__ == "__main__":
     print(f"Experiment name: {config.experiment.experiment_name}")
     print(f"BEV resolution: {config.data.bev_width}x{config.data.bev_height}")
     print(f"Attention type: {config.model.attention_type}")
-    print(f"Target improvement: 15-40% in pedestrian mIoU") 
+    print(f"Target improvement: 15-40% in pedestrian mIoU") # Configuration optimization for Colab
