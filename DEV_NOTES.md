@@ -4,3 +4,5 @@
 - Baseline U-Net architecture completed
 ## Week 4 Progress
 - Attention mechanisms implemented and tested
+## Week 6 Progress
+- Training infrastructure with mixed precision completed
