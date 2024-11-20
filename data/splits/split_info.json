@@ -1,0 +1,123 @@
+{
+  "dataset_name": "Woven by Toyota Perception Dataset",
+  "total_scenes": 2847,
+  "total_frames": 284730,
+  "split_strategy": "scene-based",
+  "split_ratios": {
+    "train": 0.70,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "splits": {
+    "train": {
+      "scenes": 1993,
+      "frames": 199311,
+      "pedestrian_instances": 201219,
+      "scene_types": {
+        "urban_intersection": 897,
+        "residential": 697,
+        "highway": 399
+      }
+    },
+    "val": {
+      "scenes": 427,
+      "frames": 42709,
+      "pedestrian_instances": 43118,
+      "scene_types": {
+        "urban_intersection": 192,
+        "residential": 149,
+        "highway": 86
+      }
+    },
+    "test": {
+      "scenes": 427,
+      "frames": 42710,
+      "pedestrian_instances": 43119,
+      "scene_types": {
+        "urban_intersection": 192,
+        "residential": 150,
+        "highway": 85
+      }
+    }
+  },
+  "class_distribution": {
+    "train": {
+      "background": 177847890,
+      "vehicle": 1553404,
+      "pedestrian": 3585798,
+      "cyclist": 713220,
+      "traffic_sign": 314099
+    },
+    "val": {
+      "background": 38138721,
+      "vehicle": 333251,
+      "pedestrian": 768994,
+      "cyclist": 152904,
+      "traffic_sign": 67339
+    },
+    "test": {
+      "background": 38138899,
+      "vehicle": 333289,
+      "pedestrian": 769011,
+      "cyclist": 152907,
+      "traffic_sign": 67340
+    }
+  },
+  "geographic_distribution": {
+    "tokyo_urban": {
+      "scenes": 1423,
+      "percentage": 49.98
+    },
+    "nagoya_central": {
+      "scenes": 854,
+      "percentage": 30.01
+    },
+    "test_cities": {
+      "scenes": 570,
+      "percentage": 20.01
+    }
+  },
+  "weather_conditions": {
+    "clear": 1993,
+    "light_rain": 569,
+    "heavy_rain": 142,
+    "fog": 114,
+    "twilight": 29
+  },
+  "quality_metrics": {
+    "annotation_coverage": 99.94,
+    "inter_annotator_agreement": 94.7,
+    "missing_lidar_frames": 0.06
+  },
+  "baseline_performance": {
+    "train": {
+      "pedestrian_miou": 56.8,
+      "overall_miou": 62.4
+    },
+    "val": {
+      "pedestrian_miou": 55.1,
+      "overall_miou": 61.3
+    },
+    "test": {
+      "pedestrian_miou": 55.4,
+      "overall_miou": 61.1
+    }
+  },
+  "enhanced_model_performance": {
+    "train": {
+      "pedestrian_miou": 73.2,
+      "overall_miou": 69.8
+    },
+    "val": {
+      "pedestrian_miou": 71.9,
+      "overall_miou": 68.5
+    },
+    "test": {
+      "pedestrian_miou": 71.4,
+      "overall_miou": 68.2
+    }
+  },
+  "created_date": "2024-09-15",
+  "last_updated": "2025-02-15",
+  "version": "1.0"
+} 
