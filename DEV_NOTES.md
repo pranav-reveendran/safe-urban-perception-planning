@@ -10,3 +10,5 @@
 - Comprehensive data loading and preprocessing completed
 ## Week 10 Progress
 - Documentation and comprehensive README completed
+## Holiday Break Progress
+- Literature review of recent attention mechanisms
