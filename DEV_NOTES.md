@@ -12,3 +12,5 @@
 - Documentation and comprehensive README completed
 ## Holiday Break Progress
 - Literature review of recent attention mechanisms
+## January Week 1
+- Started baseline training experiments
