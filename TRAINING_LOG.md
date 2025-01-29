@@ -3,3 +3,5 @@
 - Started baseline model training
 - Attention Gates experiments completed
 - 18% improvement in pedestrian mIoU achieved
+- Self-Attention and CBAM ablation studies
+- Mixed attention approach shows 25% improvement
