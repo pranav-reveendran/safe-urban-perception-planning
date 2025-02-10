@@ -30,7 +30,7 @@ class DataConfig:
     
     # LIDAR processing parameters
     point_cloud_range: List[float] = field(default_factory=lambda: [-50.0, -50.0, -3.0, 50.0, 50.0, 5.0])  # [x_min, y_min, z_min, x_max, y_max, z_max]
-    max_sweeps: int = 10  # Number of LIDAR sweeps to accumulate
+    max_sweeps: int = 5  # Number of LIDAR sweeps to accumulate
     
     # BEV features to encode
     bev_channels: List[str] = field(default_factory=lambda: ['height_max', 'height_mean', 'intensity_max', 'density'])

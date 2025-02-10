@@ -37,7 +37,7 @@ class WovenDataset(Dataset):
         data_root: str,
         split: str = 'train',
         bev_params: Optional[Dict] = None,
-        num_sweeps: int = 10,
+        num_sweeps: int = 5,
         augmentation: bool = True,
         cache_data: bool = False,
         subset_size: Optional[int] = None
