@@ -5,3 +5,6 @@
 - 18% improvement in pedestrian mIoU achieved
 - Self-Attention and CBAM ablation studies
 - Mixed attention approach shows 25% improvement
+## February 2025
+- Final optimization and documentation phase
+- Achieved 28% improvement in pedestrian mIoU
