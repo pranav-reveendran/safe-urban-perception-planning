@@ -8,3 +8,5 @@
 ## February 2025
 - Final optimization and documentation phase
 - Achieved 28% improvement in pedestrian mIoU
+- Project presentation and final report completed
+- Open source release preparation
