@@ -240,12 +240,10 @@ class BaselineUNet(nn.Module):
         
         # Bottleneck (deepest level without pooling)
         bottleneck_filters = encoder_filters[-1] * 2
-        self.bottleneck = nn.Sequential(*[
-            ConvBlock(
-                encoder_filters[-1], bottleneck_filters,
-                activation=activation, use_batch_norm=use_batch_norm, dropout=dropout
-            ) for _ in range(encoder_depths[-1])
-        ])
+        self.bottleneck = ConvBlock(
+            encoder_filters[-1], bottleneck_filters,
+            activation=activation, use_batch_norm=use_batch_norm, dropout=dropout
+        )
         
         # Decoder path
         self.decoders = nn.ModuleList()
