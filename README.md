@@ -17,6 +17,7 @@
 
 ## 📋 Table of Contents
 
+- [Problem Statement](#-problem-statement)
 - [Project Overview](#-project-overview)
 - [Research Motivation](#-research-motivation)
 - [Dataset Information](#-dataset-information)
@@ -29,6 +30,51 @@
 - [Contributing](#-contributing)
 - [License](#-license)
 - [Acknowledgments](#-acknowledgments)
+
+## 🚨 Problem Statement
+
+### **The Critical Safety Challenge**
+Autonomous vehicles must reliably detect and predict the behavior of **Vulnerable Road Users (VRUs)**, particularly pedestrians, to prevent accidents and save lives. Current state-of-the-art perception systems face significant limitations in complex urban environments where:
+
+- **Lives are at stake**: Even a single false negative (missed pedestrian) can result in fatal accidents
+- **Urban complexity**: Dense, cluttered environments with occlusions, varying lighting, and multiple moving objects
+- **Real-time requirements**: Decisions must be made in milliseconds while maintaining high accuracy
+- **Scale and distance variations**: Pedestrians appear at different sizes depending on distance from the ego vehicle
+
+### **Current Limitations in LIDAR-Based Perception**
+Traditional segmentation approaches struggle with:
+1. **Poor boundary definition** for small or distant pedestrians
+2. **Background noise** from urban infrastructure and parked vehicles  
+3. **Occlusion handling** when pedestrians are partially hidden
+4. **Class imbalance** where pedestrians represent a tiny fraction of total pixels
+5. **Computational constraints** for real-time deployment in vehicles
+
+### **What We're Trying to Achieve**
+
+#### **Primary Objective**
+Develop an **attention-enhanced deep learning system** that can:
+- **Significantly improve pedestrian detection accuracy** (targeting 15-40% improvement in mIoU)
+- **Reduce false negatives** to enhance safety for vulnerable road users
+- **Maintain real-time performance** suitable for autonomous vehicle deployment
+- **Handle complex urban scenarios** common in Bay Area driving conditions
+
+#### **High-Level Approach**
+1. **Leverage Bird's Eye View (BEV) LIDAR data** for robust 3D spatial understanding
+2. **Integrate attention mechanisms** to focus on pedestrian-relevant features
+3. **Use multi-sweep temporal information** to improve detection consistency
+4. **Apply advanced loss functions** to handle class imbalance and improve boundary accuracy
+5. **Validate on real-world data** from Woven by Toyota's urban driving dataset
+
+#### **Expected Impact**
+- **Enhanced Safety**: Fewer missed pedestrian detections in autonomous vehicles
+- **Technical Advancement**: Novel application of attention mechanisms to BEV LIDAR segmentation
+- **Academic Contribution**: Systematic evaluation of attention architectures for safety-critical applications
+- **Industry Relevance**: Production-ready improvements for autonomous vehicle perception stacks
+
+### **Why This Matters**
+As autonomous vehicles become more prevalent in urban environments, particularly in the Bay Area where this research is conducted, the ability to reliably detect and protect pedestrians becomes paramount. This project directly contributes to the safety infrastructure needed for widespread autonomous vehicle deployment.
+
+---
 
 ## 🎯 Project Overview
 
